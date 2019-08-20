@@ -7,15 +7,18 @@ def generateOTP() :
         OTP += string[math.floor(random.random() * length)]
     return OTP
 if __name__ == "__main__" :
-    print("OTP of length 6:", generateOTP())
+    ans= generateOTP()
+    print("OTP of length 6:",ans)
     s = smtplib.SMTP('smtp.gmail.com', 587)
     s.starttls()
     s.login("tanaypatankar.2000@gmail.com", "password_here")
-    message = "Here is the requested OTP : "+ generateOTP()
+    subject = "Requested OTP : "
+    body = "The requested otp is : "
+    message = f'Subject :{subject}\n\n{body+ans}'
     s.sendmail("tanaypatankar.2000@gmail.com", "tanaypatankar.2000@gmail.com", message)
     s.quit()
     otp=input("Enter the OTP")
-    if otp is generateOTP():
+    if otp == ans:
         print("OTP is correct")
     else:
         print("OTP is wrong :(")
