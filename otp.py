@@ -12,7 +12,7 @@ if __name__ == "__main__" :
     s = smtplib.SMTP('smtp.gmail.com', 587)
     s.starttls()
     s.login("tanaypatankar.2000@gmail.com", "password_here")
-    subject = "Requested OTP : "
+    subject = "OTP Generated!"
     body = "The requested otp is : "
     message = f'Subject :{subject}\n\n{body+ans}'
     s.sendmail("tanaypatankar.2000@gmail.com", "tanaypatankar.2000@gmail.com", message)
